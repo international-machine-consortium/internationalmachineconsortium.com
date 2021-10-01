@@ -1,0 +1,50 @@
+body {
+  background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  background-repeat: repeat-y;
+  --theme-font: "Staatliches", cursive;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+header h1 {
+  font-family: var(--theme-font);
+  font-size: 4rem;
+  text-align: center;
+  flex: 1;
+  letter-spacing: 0.5rem;
+}
+
+h2 {
+  font-family: var(--theme-font);
+  font-size: 4rem;
+  color: #fff;
+  text-align: center;
+}
+
+main {
+  padding: 32px;
+}
+
+.neonText {
+  color: #fff;
+  animation: pulsate 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulsate {
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09,
+      0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f00, 0 0 150px #f09;
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #f09,
+      0 0 60px #f09, 0 0 70px #ff0, 0 0 90px #f09, 0 0 130px #0ff;
+  }
+}
