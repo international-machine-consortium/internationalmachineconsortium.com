@@ -31,6 +31,13 @@ main {
   padding: 32px;
 }
 
+main p {
+  color: #ffffff;
+  font-size: 28px;
+  font-family: var(--theme-font);
+  letter-spacing: 2px;
+}
+
 .neonText {
   color: #fff;
   animation: pulsate 1s ease-in-out infinite alternate;
