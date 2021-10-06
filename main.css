@@ -3,6 +3,8 @@ body {
   background-size: cover;
   background-repeat: repeat-y;
   --theme-font: "Staatliches", cursive;
+  --neon-green: rgb(24, 185, 132);
+  --neon-pink: #f09;
 }
 
 header {
@@ -27,6 +29,17 @@ h2 {
   text-align: center;
 }
 
+h3 {
+  font-family: var(--theme-font);
+  font-size: 3rem;
+  color: #fff;
+  text-shadow: 3px 3px 0 rgb(2, 62, 31);
+  text-align: center;
+  margin-bottom: -64px;
+  z-index: 10;
+  position: relative;
+}
+
 main {
   padding: 32px;
 }
@@ -38,20 +51,48 @@ main p {
   letter-spacing: 2px;
 }
 
-.neonText {
+.neon-pink-text {
   color: #fff;
-  animation: pulsate 1s ease-in-out infinite alternate;
+  animation: pulsate-pink 1s ease-in-out infinite alternate;
 }
 
-@keyframes pulsate {
+.neon-green-text {
+  color: #fff;
+  animation: pulsate-green 1s ease-in-out infinite alternate;
+}
+
+.band-image {
+  width: 100%;
+}
+
+@keyframes pulsate-pink {
   100% {
     /* Larger blur radius */
-    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09,
-      0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f00, 0 0 150px #f09;
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+      0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink),
+      0 0 90px var(--neon-pink), 0 0 100px #f00, 0 0 150px var(--neon-pink);
   }
   0% {
     /* A slightly smaller blur radius */
-    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 30px #f09,
-      0 0 60px #f09, 0 0 70px #ff0, 0 0 90px #f09, 0 0 130px #0ff;
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff,
+      0 0 30px var(--neon-pink), 0 0 60px var(--neon-pink), 0 0 70px #ff0,
+      0 0 90px var(--neon-pink), 0 0 130px #0ff;
+  }
+}
+
+@keyframes pulsate-green {
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+      0 0 40px var(--neon-green), 0 0 80px var(--neon-green),
+      0 0 90px var(--neon-green), 0 0 100px var(--neon-green),
+      0 0 150px var(--neon-green);
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff,
+      0 0 30px var(--neon-green), 0 0 60px var(--neon-green),
+      0 0 70px var(--neon-green), 0 0 90px var(--neon-green),
+      0 0 130px var(--neon-green);
   }
 }
