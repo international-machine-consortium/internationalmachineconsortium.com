@@ -81,6 +81,11 @@ a {
   margin: 0;
 }
 
+.gig-list li {
+  border-bottom: 2px solid white;
+  padding: 16px 0;
+}
+
 @keyframes pulsate-pink {
   100% {
     /* Larger blur radius */
