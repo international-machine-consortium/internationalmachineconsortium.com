@@ -39,7 +39,12 @@ const drawStar = ({ x, y, dx, dy, color }) => {
   context.stroke();
 };
 
-const getNextStar = ({ v, velocity, speed }) => {
+const starObjectToMap = (star) => ({
+  ...star.dv,
+  color: star.color,
+});
+
+const getNextStarVector = ({ v, velocity, speed }) => {
   const nextVector = vec3.add(vec3.create(), v, velocity);
   const [x2, y2, z2] = nextVector;
 
@@ -52,30 +57,35 @@ const getNextStar = ({ v, velocity, speed }) => {
   };
 };
 
-var Star = function ({ color, velocity, speed }) {
-  let v = newStarVector();
+const resetStar = (star) => {
+  const { x, y, nextVector } = star.dv;
 
-  this.x = v[0];
-  this.y = v[1];
-  this.z = v[2];
+  if (outside({ x, y })) {
+    star.v = newStarVector();
+    star.x = star.v[0];
+    star.y = star.v[1];
+  } else {
+    star.v = nextVector;
+  }
+};
 
-  this.render = function () {
-    const { x, y, dx, dy, nextVector } = getNextStar({ v, velocity, speed });
-    drawStar({ x, y, dx, dy, color });
+const updateStar = (star) => {
+  star.dv = getNextStarVector({
+    v: star.v,
+    velocity: star.velocity,
+    speed: star.speed,
+  });
+};
 
-    v = nextVector;
-
-    if (outside({ x, y })) {
-      v = vec3.fromValues(
-        random(-half(canvas.width), half(canvas.width)),
-        random(-half(canvas.height), half(canvas.height)),
-        random(1, warpZ)
-      );
-
-      this.x = v[0];
-      this.y = v[1];
-    }
-  };
+const Star = function ({ color, velocity, speed }) {
+  this.color = color;
+  this.v = newStarVector();
+  this.dv = getNextStarVector({ v: this.v, velocity, speed });
+  this.x = this.v[0];
+  this.y = this.v[1];
+  this.z = this.v[2];
+  this.velocity = velocity;
+  this.speed = speed;
 };
 
 const render = (stars) => () => {
@@ -84,7 +94,11 @@ const render = (stars) => () => {
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   context.translate(...centerOf(canvas));
-  stars.forEach((x) => x.render());
+  stars.forEach(updateStar);
+
+  stars.map(starObjectToMap).forEach(drawStar);
+
+  stars.forEach(resetStar);
 
   requestAnimationFrame(render(stars));
 };
