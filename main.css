@@ -1,5 +1,4 @@
 body {
-  /* background-image: url("https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"); */
   background-size: cover;
   background-repeat: repeat-y;
   --theme-font: "Staatliches", cursive;
@@ -57,6 +56,12 @@ a {
   padding: 0 5px;
 }
 
+a:hover {
+  background-color: var(--neon-pink);
+  color: #fff;
+  padding: 0 5px;
+}
+
 .neon-pink-text {
   color: #fff;
   animation: pulsate-pink 1s ease-in-out infinite alternate;
@@ -79,11 +84,13 @@ a {
   font-size: 24px;
   padding: 0;
   margin: 0;
+  font-family: var(--theme-font);
 }
 
 .gig-list li {
   border-bottom: 2px solid white;
   padding: 16px 0;
+  font-family: inherit;
 }
 
 @keyframes pulsate-pink {
