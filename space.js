@@ -46,6 +46,7 @@ const newStarVector = () => ({
 });
 
 const starToDrawable = (star) => ({ ...star, ...star.dv });
+const updateStar = (star) => ({ ...star, dv: getNextStarVector(star) });
 
 const drawStar = ({ x, y, dx, dy, color }) => {
   context.strokeStyle = color;
@@ -56,15 +57,13 @@ const drawStar = ({ x, y, dx, dy, color }) => {
 };
 
 const getNextStarVector = ({ v, velocity, speed }) => {
-  const nextVector = addVector(v, velocity);
-  const { x: x2, y: y2, z: z2 } = nextVector;
-
+  const { x: x2, y: y2, z: z2 } = addVector(v, velocity);
   return {
     x: x2 / z2,
     y: y2 / z2,
     dx: x2 / (z2 + speed * 0.5),
     dy: y2 / (z2 + speed * 0.5),
-    nextVector,
+    nextVector: addVector(v, velocity),
   };
 };
 
@@ -78,11 +77,6 @@ const resetStar = (star) => {
   } else {
     return { ...star, v: nextVector };
   }
-};
-
-const updateStar = (star) => {
-  // star.dv = getNextStarVector(star);
-  return { ...star, dv: getNextStarVector(star) };
 };
 
 const Star = ({ color, velocity, speed, v }) => {
@@ -112,7 +106,7 @@ const render = (stars) => () => {
   requestAnimationFrame(render(nextStars));
 };
 
-const stars = range(250).map((_) =>
+const stars = range(150).map((_) =>
   Star({
     velocity,
     speed,
