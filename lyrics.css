@@ -1,0 +1,112 @@
+body {
+  background-size: cover;
+  background-repeat: repeat-y;
+  --theme-font: "Staatliches", cursive;
+  --neon-green: rgb(24, 185, 132);
+  --neon-pink: #f09;
+  background-color: #000000;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+header h1 {
+  font-family: var(--theme-font);
+  font-size: 2.5rem;
+  text-align: center;
+  flex: 1;
+  letter-spacing: 0.5rem;
+}
+
+h2 {
+  font-family: var(--theme-font);
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+}
+
+h3 {
+  font-family: var(--theme-font);
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 1px 1px var(--neon-green);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+
+main {
+  padding: 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+main p {
+  color: #ffffff;
+  font-size: 24px;
+  font-family: var(--theme-font);
+  letter-spacing: 2px;
+  text-shadow: 1px 1px var(--neon-green);
+  text-align: center;
+}
+
+a {
+  color: var(--neon-pink);
+  background-color: #fff;
+  padding: 0 5px;
+}
+
+a:hover {
+  background-color: var(--neon-pink);
+  color: #fff;
+  padding: 0 5px;
+}
+
+.neon-pink-text {
+  color: #fff;
+  animation: pulsate-pink 1s ease-in-out infinite alternate;
+}
+
+.neon-green-text {
+  color: #fff;
+  animation: pulsate-green 1s ease-in-out infinite alternate;
+}
+
+
+@keyframes pulsate-pink {
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+      0 0 40px var(--neon-pink), 0 0 80px var(--neon-pink),
+      0 0 90px var(--neon-pink), 0 0 100px #f00, 0 0 150px var(--neon-pink);
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff,
+      0 0 30px var(--neon-pink), 0 0 60px var(--neon-pink), 0 0 70px #ff0,
+      0 0 90px var(--neon-pink), 0 0 130px #0ff;
+  }
+}
+
+@keyframes pulsate-green {
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff,
+      0 0 40px var(--neon-green), 0 0 80px var(--neon-green),
+      0 0 90px var(--neon-green), 0 0 100px var(--neon-green),
+      0 0 150px var(--neon-green);
+  }
+  0% {
+    /* A slightly smaller blur radius */
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #fff,
+      0 0 30px var(--neon-green), 0 0 60px var(--neon-green),
+      0 0 70px var(--neon-green), 0 0 90px var(--neon-green),
+      0 0 130px var(--neon-green);
+  }
+}
+
