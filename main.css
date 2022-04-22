@@ -32,11 +32,15 @@ h3 {
   font-family: var(--theme-font);
   font-size: 2.5rem;
   color: #fff;
-  text-shadow: 3px 3px 0 rgb(2, 62, 31);
+  text-shadow: 1px 1px var(--neon-green);
   text-align: center;
-  margin-bottom: -64px;
   z-index: 10;
   position: relative;
+}
+
+.image-title {
+  margin-bottom: -64px;
+  text-shadow: 3px 3px 0 rgb(2, 62, 31);
 }
 
 main {
