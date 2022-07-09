@@ -140,3 +140,9 @@ a:hover {
   left: 0;
   z-index: -1;
 }
+
+.email {
+  text-align: center;
+  font-family: monospace;
+  animation: pulsate-green 1s ease-in-out infinite alternate;
+}
