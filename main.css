@@ -21,6 +21,12 @@ header h1 {
   letter-spacing: 0.5rem;
 }
 
+header nav {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
 h2 {
   font-family: var(--theme-font);
   font-size: 3rem;
@@ -45,18 +51,18 @@ h3 {
 
 main {
   padding: 32px;
-  max-width: 600px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
 main p {
   color: #ffffff;
-  font-size: 24px;
+  font-size: 32px;
   font-family: var(--theme-font);
   letter-spacing: 2px;
   text-shadow: 1px 1px var(--neon-green);
 }
-
+/* 
 a {
   color: var(--neon-pink);
   background-color: #fff;
@@ -67,7 +73,7 @@ a:hover {
   background-color: var(--neon-pink);
   color: #fff;
   padding: 0 5px;
-}
+} */
 
 .neon-pink-text {
   color: #fff;
@@ -81,6 +87,7 @@ a:hover {
 
 .band-image {
   width: 100%;
+  border-radius: 16px;
 }
 
 .gig-list {
@@ -141,8 +148,22 @@ a:hover {
   z-index: -1;
 }
 
+#galaxy-canvas {
+  position: fixed;
+  width: 200%;
+  height: 200vh;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+}
+
 .email {
   text-align: center;
   font-family: monospace;
   animation: pulsate-green 1s ease-in-out infinite alternate;
+}
+
+.social-media-icon {
+  font-size: 32px;
+  margin: 0 16px;
 }
