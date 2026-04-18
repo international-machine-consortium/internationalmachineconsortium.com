@@ -1,0 +1,46 @@
+---
+layout: base.njk
+pagination:
+  data: tracks
+  size: 1
+  alias: track
+permalink: "/releases/{{ track.release.slug }}/{{ track.slug }}/"
+eleventyComputed:
+  title: "{{ track.title }} — International Machine Consortium"
+  ogTitle: "{{ track.title }} — IMC"
+  description: "{% if track.lyrics %}Lyrics for {{ track.title }}{% else %}{{ track.title }}{% endif %} by International Machine Consortium, from the {% if track.release.type == 'EP' %}EP{% else %}album{% endif %} {{ track.release.name }}."
+---
+
+{% set typeWord = "EP" if track.release.type == "EP" else "album" %}
+
+<div class="page-header">
+  <a href="/releases/{{ track.release.slug }}/" class="page-header__back">&larr; {{ track.release.name }}{% if track.release.type == "EP" %} EP{% endif %}</a>
+  <h1 class="page-header__title">{{ track.title }}</h1>
+  <p class="page-header__subtitle">From the {{ typeWord }} <a href="/releases/{{ track.release.slug }}/">{{ track.release.name }}</a></p>
+</div>
+
+<div class="song-content">
+  <div class="song-content__embed">
+    <iframe
+      src="https://open.spotify.com/embed/album/{{ track.release.spotifyId }}?utm_source=generator&theme=0"
+      height="152"
+      allowfullscreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <div class="song-content__lyrics">
+    {% if track.lyrics %}
+      {% for block in track.lyrics %}
+        <div class="{{ block.type }}">
+          {%- for line in block.lines -%}
+            {{ line }}{% if not loop.last %}<br />{% endif %}
+          {%- endfor -%}
+        </div>
+      {% endfor %}
+    {% else %}
+      <p class="about__text">Lyrics coming soon.</p>
+    {% endif %}
+  </div>
+</div>
