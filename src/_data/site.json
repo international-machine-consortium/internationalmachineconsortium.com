@@ -1,0 +1,35 @@
+{
+  "name": "International Machine Consortium",
+  "shortName": "IMC",
+  "url": "https://imc.band",
+  "tagline": "A Swedish space rock band sending sonic transmissions into the cosmos. Shouting into the vast emptiness of space and patiently waiting for a hello.",
+  "about": "For as long as we remember, mankind has been watching the sky, fascinated by the great infinity. In the inner sanctum of the deep state, behind six levels of top secret, there is the International Machine Consortium — the joint forces that for the last 60 years have been on a sonic search for otherworldly life. The Swedish section, however, exists and is really into doing noisy field work. With strange sound waves, curious signals, fantastic frequencies and immersive impulses they send out their message into the black beyond.",
+  "email": "contact@imc.band",
+  "emailSubject": "I hear a signal!",
+  "heroImage": "/images/hero-image.jpeg",
+  "genre": "Space Rock",
+  "description": "International Machine Consortium is a Swedish space rock band sending sonic transmissions into the cosmos. Listen to their latest releases.",
+  "spotifyArtistId": "0qV3KB5nN9tfHfqyb0toip",
+  "socials": [
+    {
+      "name": "Spotify",
+      "url": "https://open.spotify.com/artist/0qV3KB5nN9tfHfqyb0toip",
+      "icon": "spotify"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://instagram.com/imc.band",
+      "icon": "instagram"
+    },
+    {
+      "name": "Bandcamp",
+      "url": "https://internationalmachineconsortium.bandcamp.com/",
+      "icon": "bandcamp"
+    },
+    {
+      "name": "YouTube Music",
+      "url": "https://music.youtube.com/channel/UCbXej0eI8ucZesfT-_1uRCg",
+      "icon": "youtube-music"
+    }
+  ]
+}

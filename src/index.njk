@@ -1,0 +1,87 @@
+---
+layout: base.njk
+title: International Machine Consortium — Space Rock from Sweden
+ogTitle: International Machine Consortium — Space Rock from Sweden
+description: International Machine Consortium is a Swedish space rock band sending sonic transmissions into the cosmos. Listen to their latest releases.
+ogType: music.musician
+permalink: /
+---
+
+<section class="hero">
+  <div class="hero__bg" style="background-image: url('{{ site.heroImage }}')" role="img" aria-label="{{ site.name }} band photo"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <h1 class="hero__title">International<br />Machine<br />Consortium</h1>
+    <p class="hero__tagline">{{ site.tagline }}</p>
+    <div class="hero__ctas">
+      <a href="https://open.spotify.com/artist/{{ site.spotifyArtistId }}" target="_blank" rel="noopener" class="btn btn--filled">Listen on Spotify</a>
+      <a href="#releases" class="btn">Releases</a>
+    </div>
+  </div>
+</section>
+
+<section id="releases" class="section">
+  <h2 class="section__title">Releases</h2>
+
+  {% for release in releases %}
+    <article class="release">
+      <header class="release__header">
+        <h3 class="release__title">
+          <a href="/releases/{{ release.slug }}/">{{ release.name }}</a>
+        </h3>
+        <p class="release__meta">{{ release.type }} &middot; {{ release.year }}</p>
+      </header>
+      <div class="release__embed">
+        <iframe
+          src="https://open.spotify.com/embed/album/{{ release.spotifyId }}?utm_source=generator&theme=0"
+          height="352"
+          allowfullscreen
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <ul class="release__tracklist">
+        {% for track in release.tracks %}
+          <li>
+            <a href="/releases/{{ release.slug }}/{{ track.slug }}/">
+              <span class="track-number">{{ loop.index }}.</span> {{ track.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+      <a href="/releases/{{ release.slug }}/" class="release__more">View release &rarr;</a>
+    </article>
+  {% endfor %}
+</section>
+
+<section id="about" class="section">
+  <h2 class="section__title">About</h2>
+  <p class="about__text">{{ site.about }}</p>
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "{{ site.name }}",
+    "url": "{{ site.url }}",
+    "genre": "{{ site.genre }}",
+    "description": "{{ site.description }}",
+    "image": "{{ site.url }}{{ site.heroImage }}",
+    "sameAs": [
+      {%- for social in site.socials -%}
+        "{{ social.url }}"{% if not loop.last %},{% endif %}
+      {%- endfor -%}
+    ],
+    "album": [
+      {%- for release in releases -%}
+        {
+          "@type": "MusicAlbum",
+          "name": "{{ release.name }}",
+          "datePublished": "{{ release.year }}",
+          "url": "{{ site.url }}/releases/{{ release.slug }}/"
+        }{% if not loop.last %},{% endif %}
+      {%- endfor -%}
+    ]
+  }
+</script>

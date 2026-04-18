@@ -1,0 +1,61 @@
+---
+layout: base.njk
+pagination:
+  data: releases
+  size: 1
+  alias: release
+permalink: "/releases/{{ release.slug }}/"
+eleventyComputed:
+  title: "{{ release.name }} — International Machine Consortium"
+  ogTitle: "{{ release.name }} — International Machine Consortium"
+  description: "{{ release.name }} is a{% if release.type == 'EP' %}n EP{% else %}n album{% endif %} by International Machine Consortium, released in {{ release.year }}."
+  ogType: music.album
+---
+
+<div class="page-header">
+  <a href="/#releases" class="page-header__back">&larr; All Releases</a>
+  <h1 class="page-header__title">{{ release.name }}</h1>
+  <p class="page-header__subtitle">{{ release.type }} &middot; {{ release.year }}</p>
+</div>
+
+<div class="release-detail">
+  <div class="release__embed">
+    <iframe
+      src="https://open.spotify.com/embed/album/{{ release.spotifyId }}?utm_source=generator&theme=0"
+      height="352"
+      allowfullscreen
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"
+    ></iframe>
+  </div>
+  <ul class="release__tracklist">
+    {% for track in release.tracks %}
+      <li>
+        <a href="/releases/{{ release.slug }}/{{ track.slug }}/">
+          <span class="track-number">{{ loop.index }}.</span> {{ track.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicAlbum",
+    "name": "{{ release.name }}",
+    "datePublished": "{{ release.year }}",
+    {% if release.type == "EP" %}"albumProductionType": "EP",{% endif %}
+    "byArtist": { "@type": "MusicGroup", "name": "International Machine Consortium" },
+    "url": "{{ site.url }}/releases/{{ release.slug }}/",
+    "track": [
+      {%- for track in release.tracks -%}
+        {
+          "@type": "MusicRecording",
+          "name": "{{ track.title }}",
+          "url": "{{ site.url }}/releases/{{ release.slug }}/{{ track.slug }}/"
+        }{% if not loop.last %},{% endif %}
+      {%- endfor -%}
+    ]
+  }
+</script>

@@ -1,0 +1,458 @@
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0a0a0a;
+  --text: #e0e0e0;
+  --text-muted: #999;
+  --accent: #b0b0b0;
+  --accent-hover: #fff;
+  --font-heading: "Staatliches", sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== Navigation ===== */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.site-nav__logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #fff;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+.site-nav__links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.site-nav__links a {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.site-nav__links a:hover {
+  color: #fff;
+}
+
+.site-nav__socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav__socials a {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.site-nav__socials a:hover {
+  color: #fff;
+}
+
+/* Mobile nav toggle */
+.site-nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  padding-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  filter: grayscale(100%);
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  padding: 0 1.5rem;
+  max-width: 900px;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  color: #fff;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero__tagline {
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  border: 1px solid #fff;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: var(--bg);
+}
+
+.btn--filled {
+  background: #fff;
+  color: var(--bg);
+}
+
+.btn--filled:hover {
+  background: transparent;
+  color: #fff;
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 5rem 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #fff;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+/* ===== Releases ===== */
+.release {
+  margin-bottom: 4rem;
+}
+
+.release__header {
+  margin-bottom: 1.5rem;
+}
+
+.release__title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: #fff;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.release__meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.release__embed {
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.release__embed iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.release__tracklist {
+  list-style: none;
+}
+
+.release__tracklist li {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.release__tracklist a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.release__tracklist a:hover {
+  color: #fff;
+}
+
+.release__tracklist .track-number {
+  color: var(--text-muted);
+  width: 2rem;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+}
+
+.release__more {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.release__more:hover {
+  color: #fff;
+}
+
+/* ===== About ===== */
+.about__text {
+  font-size: 1.05rem;
+  color: var(--text);
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  text-align: center;
+}
+
+.site-footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.site-footer__socials a {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+}
+
+.site-footer__socials a:hover {
+  color: #fff;
+}
+
+.site-footer__email {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ===== Song / Release Detail Pages ===== */
+.page-header {
+  padding: 7rem 2rem 3rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.page-header__back {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.page-header__back:hover {
+  color: #fff;
+}
+
+.page-header__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #fff;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.page-header__subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.song-content {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+.song-content__embed {
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.song-content__embed iframe {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.song-content__lyrics {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text);
+}
+
+.song-content__lyrics .verse,
+.song-content__lyrics .chorus {
+  margin-bottom: 2rem;
+}
+
+.song-content__lyrics .chorus {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ===== Release Detail Page ===== */
+.release-detail {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem 5rem;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .site-nav {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .site-nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 1rem 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .site-nav__links.is-open {
+    display: flex;
+  }
+
+  .site-nav__toggle {
+    display: block;
+  }
+
+  .site-nav__socials {
+    display: none;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 10vw, 3.5rem);
+  }
+
+  .section {
+    padding: 3rem 1.25rem;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
