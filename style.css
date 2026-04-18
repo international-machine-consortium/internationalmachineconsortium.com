@@ -390,8 +390,14 @@ img {
   color: var(--text);
 }
 
-.song-content__lyrics .verse {
+.song-content__lyrics .verse,
+.song-content__lyrics .chorus {
   margin-bottom: 2rem;
+}
+
+.song-content__lyrics .chorus {
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 /* ===== Release Detail Page ===== */
