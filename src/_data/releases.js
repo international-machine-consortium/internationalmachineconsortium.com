@@ -11,7 +11,84 @@ module.exports = [
     spotifyId: "3VQRFJHljSPqyCjUfCaK3f",
     tracks: [
       { slug: "prelude", title: "Prelude" },
-      { slug: "settlers-dilemma", title: "Settlers' Dilemma" },
+      {
+        slug: "settlers-dilemma",
+        title: "Settlers' Dilemma",
+        lyrics: [
+          {
+            type: "chorus",
+            lines: [
+              "Repeat what she said.",
+              "Repeat in your head.",
+              "Repeat what you heard.",
+              "Repeat word for word.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "Not on the sand.",
+              "Not on the sand.",
+              "You understand?",
+              "Not on the sand.",
+            ],
+          },
+          {
+            type: "chorus",
+            lines: [
+              "Repeat what she said.",
+              "Repeat in your head.",
+              "Repeat what you heard.",
+              "Repeat word for word.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "Settle on rock.",
+              "Settle on rock.",
+              "Withstand the shock.",
+              "Settle on rock.",
+            ],
+          },
+          {
+            type: "chorus",
+            lines: [
+              "Repeat what she said.",
+              "Repeat in your head.",
+              "Repeat what you heard.",
+              "Repeat word for word.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "Gravel is weak.",
+              "Gravel is weak.",
+              "It's not what you seek.",
+              "Gravel is weak.",
+            ],
+          },
+          {
+            type: "chorus",
+            lines: [
+              "Repeat what she said.",
+              "Repeat in your head.",
+              "Repeat what you heard.",
+              "Repeat word for word.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "Settle on rock.",
+              "Settle on rock.",
+              "Withstand the shock.",
+              "Settle on rock.",
+            ],
+          },
+        ],
+      },
       {
         slug: "the-ground",
         title: "The Ground",
@@ -72,8 +149,99 @@ module.exports = [
           },
         ],
       },
-      { slug: "dunes-of-proxima", title: "Dunes of Proxima" },
-      { slug: "new-day-new-life", title: "New Day, New Life" },
+      {
+        slug: "dunes-of-proxima",
+        title: "Dunes of Proxima",
+        lyrics: [
+          {
+            type: "verse",
+            lines: [
+              "I step into the dust",
+              "The air is thin and dry",
+              "The sun burns on my head",
+              "I don't know what I'll find",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "The ground radiates heat,",
+              "like it's trying to push me away.",
+              "The night gets cold too fast",
+              "Each breath cuts like ice.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "I stand on foreign ground",
+              "I search the sky for earth",
+              "Its light is lost to me.",
+              "I miss the smell of rain.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "I keep walking,",
+              "but I don't know why",
+              "I stare at the strange sky",
+              "I've lost all sense of time",
+            ],
+          },
+          {
+            type: "chorus",
+            lines: [
+              "The stars are silent",
+              "They refuse to guide me",
+              "I'm lost in the dunes,",
+              "Fading into the sand",
+              "Burned by day, frozen by night",
+              "Burned by day, frozen by night",
+            ],
+          },
+        ],
+      },
+      {
+        slug: "new-day-new-life",
+        title: "New Day, New Life",
+        lyrics: [
+          {
+            type: "verse",
+            lines: [
+              "Time, is slowly running out, and everything they promised will surely be in doubt",
+              "The light is burning from the sky, and people wonder if it still is worth a try",
+              "Sometimes we are stuck in demands to strive, forgetting we are still alive",
+              "But we will never ever die, as long as there is hope and as long as there's a lie",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "Summer, some day it might be summer, when everything's in order just like it used to be",
+              "The next generation will be happy and not be doomed forever, to pain and misery",
+              "This world might be just fine",
+              "This world might blow your mind.",
+            ],
+          },
+          {
+            type: "verse",
+            lines: [
+              "This might have been too much to comprehend",
+              "But until we're gone, let us believe, let us pretend",
+            ],
+          },
+          {
+            type: "chorus",
+            lines: [
+              "New day, new life",
+              "New day, new life",
+              "New day, new life",
+              "New day, new life",
+            ],
+          },
+        ],
+      },
     ],
   },
   {
